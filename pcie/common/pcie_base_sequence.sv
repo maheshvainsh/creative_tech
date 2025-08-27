@@ -1,9 +1,9 @@
 class pcie_base_sequence extends uvm_sequence#(master_pkt);
-          pcie_cfg_pkt m_pcie_cfg_pkt;
+       /*   pcie_cfg_pkt m_pcie_cfg_pkt;
           pcie_mem_pkt m_pcie_mem_pkt;
           pcie_io_pkt  m_pcie_io_pkt;
           pcie_msg_pkt  m_pcie_msg_pkt;
-          pcie_comp_pkt  m_pcie_comp_pkt;
+          pcie_comp_pkt  m_pcie_comp_pkt;*/
           master_pkt     m_master_pkt;
 	`uvm_object_utils(pcie_base_sequence)
    
@@ -20,12 +20,12 @@ endclass : pcie_base_sequence
 	endfunction
 
         task pcie_base_sequence::body();
-            m_pcie_cfg_pkt = pcie_cfg_pkt::type_id::create("m_pcie_cfg_pkt"); 
+           req = pcie_pkt::type_id::create("req");  //create the req (seq item)
+          /*  m_pcie_cfg_pkt = pcie_cfg_pkt::type_id::create("m_pcie_cfg_pkt"); 
             m_pcie_mem_pkt = pcie_mem_pkt::type_id::create("m_pcie_mem_pkt"); 
             m_pcie_io_pkt  = pcie_io_pkt::type_id::create("m_pcie_io_pkt"); 
             m_pcie_msg_pkt  = pcie_msg_pkt::type_id::create("m_pcie_msg_pkt"); 
             m_pcie_comp_pkt  = pcie_comp_pkt::type_id::create("m_pcie_comp_pkt"); 
-           //req = pcie_pkt::type_id::create("req");  //create the req (seq item)
            assert(m_pcie_cfg_pkt.randomize() ); 
            assert(m_pcie_mem_pkt.randomize() ); 
            assert(m_pcie_io_pkt.randomize() ); 
@@ -37,8 +37,8 @@ endclass : pcie_base_sequence
            m_pcie_msg_pkt.print();
            m_pcie_comp_pkt.print();*/
 
-           $cast(m_master_pkt, m_pcie_mem_pkt);
-           m_master_pkt.print();
+          // $cast(m_master_pkt, m_pcie_mem_pkt);
+           req.print();
                       //randomize the req                    
            //send_request(req);                           //send req to driver
            //wait_for_item_done();                        //wait for item done from driver
