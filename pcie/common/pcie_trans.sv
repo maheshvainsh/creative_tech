@@ -63,7 +63,7 @@ class pcie_header_pkt extends master_pkt ;
      rand bit [7:0]  TAG;
      rand bit [7:0] DW_BE;
      
-     rand bit [7:0] ADDRESS[];
+     rand bit [31:0] ADDRESS[];
  
      rand bit [31:0] TLP_DIGEST [];
      rand  ph_t PH;
@@ -122,11 +122,11 @@ class pcie_header_pkt extends master_pkt ;
                
                 if(TR_TYPE == MRD)  {
                    Type == 'b00000;
-                   soft FMT inside {'b000,'b001};
+                    FMT inside {'b000,'b001};
                 }
                 else if(TR_TYPE == MRDLK)  {
                    Type == 'b00001;
-                   soft FMT inside {'b000,'b001};
+                   FMT inside {'b000,'b001};
                 }
                 else if(TR_TYPE == MWR)     {
                    Type == 'b00000;
@@ -214,7 +214,7 @@ endclass :  pcie_header_pkt
 
 
 
-class pcie_pkt extends pcie_header_pkt ;
+/*class pcie_pkt extends pcie_header_pkt ;
      // rand bit [15:0] REQUESTER_ID;
      // rand bit [7:0]  TAG;
      // rand bit [7:0] DW_BE;
@@ -347,7 +347,7 @@ endclass :  pcie_pkt
          //  foreach(DATA[i]) begin
          //   printer.print_int($sformatf("DATA2[%0d]", i), DATA[i], $bits(DATA[i]),UVM_HEX );
          //end
-     endfunction
+     endfunction*/
  
      
 

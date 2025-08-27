@@ -1,9 +1,9 @@
 import uvm_pkg::*;//compile uvm lib
 `include "uvm_macros.svh"
-`include "/home/mahesh/project/trunk/creative_tech/pcie/ep/pcie_ep_pkg.sv"
-`include "/home/mahesh/project/trunk/creative_tech/pcie/rc/pcie_rc_pkg.sv"
-`include "/home/mahesh/project/trunk/creative_tech/pcie/switch/pcie_sw_pkg.sv"
-`include "/home/mahesh/project/trunk/creative_tech/pcie/common/pcie_common_pkg.sv"
+`include "/home/mahesh/project/trunk/new_repo/creative_tech/pcie/ep/pcie_ep_pkg.sv"
+`include "/home/mahesh/project/trunk/new_repo/creative_tech/pcie/rc/pcie_rc_pkg.sv"
+`include "/home/mahesh/project/trunk/new_repo/creative_tech/pcie/switch/pcie_sw_pkg.sv"
+`include "/home/mahesh/project/trunk/new_repo/creative_tech/pcie/common/pcie_common_pkg.sv"
 import pcie_ep_pkg::*;
 import pcie_sw_pkg::*;
 import pcie_rc_pkg::*;
