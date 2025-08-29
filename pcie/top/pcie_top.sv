@@ -1,6 +1,6 @@
 import uvm_pkg::*;//compile uvm lib
 `include "uvm_macros.svh"
-`include "/home/mahesh/project/trunk/new_repo/creative_tech/pcie/ep/pcie_pkg.sv"
+`include "/home/mahesh/project/trunk/new_repo/creative_tech/pcie/vip/pcie_pkg.sv"
 `include "/home/mahesh/project/trunk/new_repo/creative_tech/pcie/common/pcie_common_pkg.sv"
 import pcie_pkg::*;
 import pcie_common_pkg::*;
