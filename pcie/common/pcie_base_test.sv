@@ -1,3 +1,5 @@
+`ifndef PCIE_BASE_TEST_SV
+`define PCIE_BASE_TEST_SV
 class pcie_base_test extends uvm_test;
 
      pcie_env m_pcie_env;
@@ -25,7 +27,7 @@ endclass : pcie_base_test
   // [Recommended] By this phase, the environment is all set up so its good to just print the topology for debug
    function void pcie_base_test::end_of_elaboration_phase (uvm_phase phase);
       uvm_top.print_topology ();
-   endfunction
+   endfunction : end_of_elaboration_phase
     
    
   task pcie_base_test::run_phase(uvm_phase phase);
@@ -37,6 +39,5 @@ endclass : pcie_base_test
     
     phase.drop_objection(this);
     `uvm_info(get_type_name, "End of testcase", UVM_LOW);
-  endtask
-
-    
+  endtask : run_phase
+`endif //PCIE_BASE_TEST_SV

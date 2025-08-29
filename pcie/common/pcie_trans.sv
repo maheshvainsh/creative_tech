@@ -1,3 +1,6 @@
+`ifndef PCIE_TRANS_SV
+`define PCIE_TRANS_SV
+
 import uvm_pkg::*;//compile uvm lib
 
 `include "uvm_macros.svh"
@@ -351,4 +354,4 @@ endclass :  pcie_pkt
  
      
 
-
+`endif //PCIE_TRANS_SV

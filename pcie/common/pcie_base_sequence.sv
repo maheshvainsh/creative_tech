@@ -1,3 +1,6 @@
+`ifndef PCIE_BASE_SEQUENCE_SV
+`define PCIE_BASE_SEQUENCE_SV
+
 class pcie_base_sequence extends uvm_sequence#(master_pkt);
         pcie_mem_pkt m_pcie_mem_pkt;
 
@@ -52,4 +55,4 @@ endclass : pcie_base_sequence
           // get_response(rsp);                           //get response from driver
        
          endtask
-
+`endif //PCIE_BASE_SEQUENCE_SV

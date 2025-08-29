@@ -1,3 +1,5 @@
+`ifndef PCIE_VIRTUAL_SEQUENCER_SV
+`define PCIE_VIRTUAL_SEQUENCER_SV
 class pcie_virtual_sequencer extends uvm_sequencer;
 
     `uvm_component_utils(pcie_virtual_sequencer)
@@ -14,5 +16,7 @@ endclass : pcie_virtual_sequencer
     function void pcie_virtual_sequencer::build_phase(uvm_phase phase);
        //Create the environment
     endfunction : build_phase
+
+`endif //PCIE_VIRTUAL_SEQUENCER_SV
 
 

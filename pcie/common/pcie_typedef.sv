@@ -1,3 +1,6 @@
+`ifndef PCIE_TYPEDEF_PKG_SV
+`define PCIE_TYPEDEF_PKG_SV
+
 //	
 typedef enum {MASTER,SLAVE} master_slave_e;
 
@@ -23,7 +26,6 @@ typedef enum bit[1:0] {BI_DIRECTIONAL_DATA   = 'b00,
                        TARGET                = 'b10,
                        TARGET_WITH_PRIORITY  = 'b11
                       } ph_t;
-
 
 typedef enum bit[2:0] {ROUTED_TO_RC             = 'b000,
                        ROUTED_BY_ADDRESS        = 'b001,
@@ -89,9 +91,7 @@ typedef enum bit[2:0]  { SUCCESSFUL_COMPLETION  = 'b000,
                          COMPLETER_ABORT    = 'b100
                         } completion_status_e;
 
-
-
-
+`endif //PCIE_TYPEDEF_PKG_SV
 
 
 
