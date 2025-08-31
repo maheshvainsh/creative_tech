@@ -3,17 +3,18 @@
 `define PCIE_COMMON_PKG_SV
 package pcie_common_pkg;
 import uvm_pkg::*;//compile uvm lib
+import pcie_pkg::*;
 `include "uvm_macros.svh"
-`include "pcie_parameter.sv"
-`include "pcie_trans.sv"
-`include "packets/pcie_cfg_pkt.sv"
-`include "packets/pcie_mem_pkt.sv"
-`include "packets/pcie_io_pkt.sv"
-`include "packets/pcie_msg_pkt.sv"
-`include "packets/pcie_comp_pkt.sv"
-`include "pcie_base_sequence.sv"
+//`include "pcie_parameter.sv"
+//`include "pcie_trans.sv"
+//`include "packets/pcie_cfg_pkt.sv"
+//`include "packets/pcie_mem_pkt.sv"
+//`include "packets/pcie_io_pkt.sv"
+//`include "packets/pcie_msg_pkt.sv"
+//`include "packets/pcie_comp_pkt.sv"
+`include "../seq_lib/pcie_seq_lib.svh"
 `include "pcie_virtual_sequencer.sv"
-`include "pcie_env.sv"
-`include "pcie_base_test.sv"
+`include "../env/pcie_env.sv"
+`include "../tests/pcie_test_lib.sv"
 endpackage : pcie_common_pkg
 `endif//PCIE_COMMON_PKG_SV
