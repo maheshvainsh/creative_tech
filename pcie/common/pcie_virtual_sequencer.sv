@@ -1,7 +1,7 @@
 `ifndef PCIE_VIRTUAL_SEQUENCER_SV
 `define PCIE_VIRTUAL_SEQUENCER_SV
 class pcie_virtual_sequencer extends uvm_sequencer;
-
+    pcie_sequencer m_pcie_sequencer;
     `uvm_component_utils(pcie_virtual_sequencer)
 
     extern function new(string name ="pcie_virtual_sequencer",uvm_component parent);

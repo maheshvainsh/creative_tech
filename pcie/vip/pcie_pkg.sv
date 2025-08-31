@@ -5,7 +5,9 @@
 package pcie_pkg;
 import uvm_pkg::*;//compile uvm lib
 `include "uvm_macros.svh"
+`include "../ral_model/pcie_ral_pkg.sv"
 `include "pcie_parameter.sv"
+`include "../mem_model/mem_model.sv"
 `include "pcie_trans.sv"
 `include "packets/pcie_cfg_pkt.sv"
 `include "packets/pcie_mem_pkt.sv"
