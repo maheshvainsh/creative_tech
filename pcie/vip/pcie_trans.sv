@@ -9,10 +9,15 @@ import uvm_pkg::*;//compile uvm lib
 
 class master_pkt extends uvm_sequence_item ;
  
-     rand bit[31:0] payload[] ; //main packet to be driven
+     rand bit[7:0] payload[] ; //main packet to be driven 
+     rand bit [DATA_WIDTH-1:0] DATA[];
+     rand bit [31:0] ADDRESS[];
+
 
       `uvm_object_utils_begin(master_pkt)
-        `uvm_field_array_int(payload,UVM_ALL_ON)
+      `uvm_field_array_int(payload,UVM_ALL_ON)
+      `uvm_field_array_int(DATA,UVM_ALL_ON | UVM_HEX)
+      `uvm_field_array_int(ADDRESS,UVM_ALL_ON | UVM_HEX)     
       `uvm_object_utils_end
 
     //-----------------------------------------------------------------
@@ -65,9 +70,7 @@ class pcie_header_pkt extends master_pkt ;
      rand bit [15:0] REQUESTER_ID;
      rand bit [7:0]  TAG;
      rand bit [7:0] DW_BE;
-     
-     rand bit [31:0] ADDRESS[];
- 
+  
      rand bit [31:0] TLP_DIGEST [];
      rand  ph_t PH;
 
@@ -104,7 +107,7 @@ class pcie_header_pkt extends master_pkt ;
          payload[0][4:0] == Type;
          payload[0][7:5] == FMT;
          payload[1][7] == T9;
-         payload[1][5:4] == TC;
+         payload[1][6:4] == TC;
          payload[1][3] == T8;
          payload[1][2] == ATTR_2;
          payload[1][1] == LN;
@@ -125,19 +128,19 @@ class pcie_header_pkt extends master_pkt ;
                
                 if(TR_TYPE == MRD)  {
                    Type == 'b00000;
-                    FMT inside {'b000,'b001};
+                  //  FMT inside {'b000,'b001};
                 }
                 else if(TR_TYPE == MRDLK)  {
                    Type == 'b00001;
-                   FMT inside {'b000,'b001};
+                 //  FMT inside {'b000,'b001};
                 }
                 else if(TR_TYPE == MWR)     {
                    Type == 'b00000;
-                   FMT inside {'b010,'b011};
+                 //  FMT inside {'b010,'b011};
                 }
                 else if(TR_TYPE == IORD)    {
                    Type == 'b00010;
-                   FMT inside {'b000};
+                   FMT inside {'b000};             
                 }
                 else if(TR_TYPE == IOWR)    {
                    Type == 'b00010;
