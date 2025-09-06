@@ -1,3 +1,14 @@
+//----------------------------------------------------------------------
+// Project       : AUURORALANE
+// File          : pcie_sequencer.sv
+//----------------------------------------------------------------------
+// Created by    : MAHESH VANISH
+//               : RUTVIK MAKWANA
+// Creation Date : 2025-09-06
+//----------------------------------------------------------------------
+// Description   : 
+//                 
+//----------------------------------------------------------------------
 class pcie_sequencer extends uvm_sequencer;
 	`uvm_component_utils (pcie_sequencer)
 	

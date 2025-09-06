@@ -1,3 +1,14 @@
+//----------------------------------------------------------------------
+// Project       : AUURORALANE
+// File          : pcie_config_reg.sv
+//----------------------------------------------------------------------
+// Created by    : MAHESH VANISH
+//               : RUTVIK MAKWANA
+// Creation Date : 2025-09-06
+//----------------------------------------------------------------------
+// Description   : 
+//                 
+//----------------------------------------------------------------------
 // Vendor ID Register (offset 0x00)
 class pcie_vendor_id_reg extends uvm_reg;
   rand uvm_reg_field vendor_id;
