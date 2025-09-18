@@ -15,6 +15,8 @@
 class pcie_base_sequence extends uvm_sequence#(master_pkt);
         pcie_mem_pkt m_pcie_mem_pkt;
         pcie_io_pkt  m_pcie_io_pkt;
+        pcie_cfg_pkt m_pcie_cfg_pkt;
+
 
        /*   pcie_cfg_pkt m_pcie_cfg_pkt;
           pcie_mem_pkt m_pcie_mem_pkt;
@@ -39,15 +41,25 @@ endclass : pcie_base_sequence
         task pcie_base_sequence::body();
            m_pcie_mem_pkt = pcie_mem_pkt::type_id::create("m_pcie_mem_pkt");
            m_pcie_io_pkt  = pcie_io_pkt::type_id::create("m_pcie_io_pkt");
-  
+           m_pcie_cfg_pkt = pcie_cfg_pkt::type_id::create("m_pcie_cfg_pkt");
+
           // assert(m_pcie_mem_pkt.randomize() with {TR_TYPE ==MRD;FMT == DW3_HEADER_WD;}); 
           // //assert(m_pcie_mem_pkt.randomize() with {TR_TYPE ==MWR;FMT == DW3_HEADER_WD;}); 
           // $cast(m_master_pkt, m_pcie_mem_pkt);
           
 
-           assert(m_pcie_io_pkt.randomize() with {TR_TYPE ==IOWR;}); 
-           $cast(m_master_pkt, m_pcie_io_pkt);
-           m_master_pkt.print();
+          // assert(m_pcie_io_pkt.randomize() with {TR_TYPE ==IOWR;}); 
+          // $cast(m_master_pkt, m_pcie_io_pkt);
+          // m_master_pkt.print();
+
+           assert(m_pcie_cfg_pkt.randomize() with {TR_TYPE==CFGWR0;});  
+            $cast(m_master_pkt,m_pcie_cfg_pkt);
+            m_master_pkt.print();
+     
+           assert(m_pcie_cfg_pkt.randomize() with {TR_TYPE==CFGR0;});  
+            $cast(m_master_pkt,m_pcie_cfg_pkt);
+            m_master_pkt.print();
+
 
            //req = pcie_pkt::type_id::create("req");  //create the req (seq item)
           /*  m_pcie_cfg_pkt = pcie_cfg_pkt::type_id::create("m_pcie_cfg_pkt"); 
