@@ -102,6 +102,25 @@ typedef enum bit[2:0]  { SUCCESSFUL_COMPLETION  = 'b000,
                          COMPLETER_ABORT    = 'b100
                         } completion_status_e;
 
+typedef enum  bit[3:0] {INTX_INTERRUPT_SIGNALING,
+                        POWER_MANAGEMENT,
+                        ERROR_SIGNALING,
+                        LOCKED_TRANSACTION_SUPPORT,
+                        SLOT_POWER_LIMIT_SUPPORT,
+                        VENDOR_DEFINED_MESSAGES,
+                        LATENCY_TOLERANCE_REPORTING_MESSAGES,
+                        OPTIMIZED_BUFFER_FLUSH_FILL_MESSAGES,
+                        DEVICE_READINESS_STATUS_MESSAGES,
+                        FUNCTION_READINESS_STATUS_MESSAGES,
+                        PRECISION_TIME_MEASUREMENT_MESSAGES}pcie_message_t;
+
+typedef enum bit[1:0] { ECS_LEGACY,
+                        ECS_SIG_SFW,
+                        ECS_SIG_OS,
+                        ECS_EXTENDED}ecs_t;
+
+                        
+                         
 `endif //PCIE_TYPEDEF_PKG_SV
 
 

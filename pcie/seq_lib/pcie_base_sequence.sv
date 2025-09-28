@@ -16,6 +16,12 @@ class pcie_base_sequence extends uvm_sequence#(master_pkt);
         pcie_mem_pkt m_pcie_mem_pkt;
         pcie_io_pkt  m_pcie_io_pkt;
         pcie_cfg_pkt m_pcie_cfg_pkt;
+        pcie_msg_pkt#(INTX_INTERRUPT_SIGNALING)  m_pcie_msg_intx_inrupt;
+        pcie_msg_pkt#(POWER_MANAGEMENT)  m_pcie_msg_pwr_mengt;
+        pcie_msg_pkt#(ERROR_SIGNALING)  m_pcie_msg_err_signl;
+        pcie_msg_pkt#(LOCKED_TRANSACTION_SUPPORT)  m_pcie_msg_lock_trans;
+        pcie_msg_pkt#(SLOT_POWER_LIMIT_SUPPORT)  m_pcie_msg_slot_pwr_lmt;
+        pcie_msg_pkt#(VENDOR_DEFINED_MESSAGES)  m_pcie_msg_vendor_def_msg;
 
 
        /*   pcie_cfg_pkt m_pcie_cfg_pkt;
@@ -42,7 +48,13 @@ endclass : pcie_base_sequence
            m_pcie_mem_pkt = pcie_mem_pkt::type_id::create("m_pcie_mem_pkt");
            m_pcie_io_pkt  = pcie_io_pkt::type_id::create("m_pcie_io_pkt");
            m_pcie_cfg_pkt = pcie_cfg_pkt::type_id::create("m_pcie_cfg_pkt");
-
+           m_pcie_msg_intx_inrupt = pcie_msg_pkt#(INTX_INTERRUPT_SIGNALING)::type_id::create("m_pcie_msg_intx_inrupt");
+           m_pcie_msg_pwr_mengt = pcie_msg_pkt#(POWER_MANAGEMENT)::type_id::create("m_pcie_msg_pwr_mengt");
+           m_pcie_msg_err_signl =  pcie_msg_pkt#(ERROR_SIGNALING)::type_id::create("m_pcie_msg_err_signl");
+           m_pcie_msg_lock_trans = pcie_msg_pkt#(LOCKED_TRANSACTION_SUPPORT)::type_id::create("m_pcie_msg_lock_trans");
+           m_pcie_msg_slot_pwr_lmt =  pcie_msg_pkt#(SLOT_POWER_LIMIT_SUPPORT)::type_id::create("m_pcie_msg_slot_pwr_lmt");
+           m_pcie_msg_vendor_def_msg =  pcie_msg_pkt#(VENDOR_DEFINED_MESSAGES)::type_id::create("m_pcie_msg_vendor_def_msg");
+           
           // assert(m_pcie_mem_pkt.randomize() with {TR_TYPE ==MRD;FMT == DW3_HEADER_WD;}); 
           // //assert(m_pcie_mem_pkt.randomize() with {TR_TYPE ==MWR;FMT == DW3_HEADER_WD;}); 
           // $cast(m_master_pkt, m_pcie_mem_pkt);
@@ -52,15 +64,39 @@ endclass : pcie_base_sequence
           // $cast(m_master_pkt, m_pcie_io_pkt);
           // m_master_pkt.print();
 
-           assert(m_pcie_cfg_pkt.randomize() with {TR_TYPE==CFGWR0;});  
-            $cast(m_master_pkt,m_pcie_cfg_pkt);
-            m_master_pkt.print();
+           //assert(m_pcie_cfg_pkt.randomize() with {TR_TYPE==CFGWR0;});  
+           // $cast(m_master_pkt,m_pcie_cfg_pkt);
+           // m_master_pkt.print();
      
-           assert(m_pcie_cfg_pkt.randomize() with {TR_TYPE==CFGR0;});  
-            $cast(m_master_pkt,m_pcie_cfg_pkt);
+           //assert(m_pcie_cfg_pkt.randomize() with {TR_TYPE==CFGR0;});  
+           // $cast(m_master_pkt,m_pcie_cfg_pkt);
+           // m_master_pkt.print();
+
+           assert(m_pcie_msg_intx_inrupt.randomize());
+           $cast(m_master_pkt,m_pcie_msg_intx_inrupt);
+            m_master_pkt.print();
+           
+           assert(m_pcie_msg_pwr_mengt.randomize());
+           $cast(m_master_pkt,m_pcie_msg_pwr_mengt);
             m_master_pkt.print();
 
+           assert(m_pcie_msg_err_signl.randomize());
+           $cast(m_master_pkt,m_pcie_msg_err_signl);
+            m_master_pkt.print();
 
+           assert(m_pcie_msg_lock_trans.randomize());
+           $cast(m_master_pkt,m_pcie_msg_lock_trans);
+            m_master_pkt.print();
+
+           assert(m_pcie_msg_slot_pwr_lmt.randomize());
+           $cast(m_master_pkt,m_pcie_msg_slot_pwr_lmt);
+            m_master_pkt.print();
+
+           assert(m_pcie_msg_vendor_def_msg.randomize());
+           $cast(m_master_pkt,m_pcie_msg_vendor_def_msg);
+            m_master_pkt.print();
+            
+           
            //req = pcie_pkt::type_id::create("req");  //create the req (seq item)
           /*  m_pcie_cfg_pkt = pcie_cfg_pkt::type_id::create("m_pcie_cfg_pkt"); 
             m_pcie_mem_pkt = pcie_mem_pkt::type_id::create("m_pcie_mem_pkt"); 

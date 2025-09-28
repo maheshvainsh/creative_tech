@@ -22,5 +22,6 @@ parameter DEVICE_NUM_WIDTH=5;
 parameter FCN_NUM__WIDTH = 3;
 parameter EXTEND_REG_WIDTH=4;
 parameter REG_NUMBER_WIDTH = 6;
+parameter VENDOR_ID_WIDTH = 16;
 
 `endif //PCIE_PARAMETER_SV
